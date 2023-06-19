@@ -1,0 +1,8 @@
+<li>{{ employee.name }} ({{ employee.position }}) - Manager: {% if employee.manager %}{{ employee.manager.name }}{% endif %}</li>
+{% if employee.subordinates.all %}
+   <ol>
+       {% for subordinate in employee.subordinates.all %}
+           {% include 'employees/employee_item.html' with employee=subordinate %}
+       {% endfor %}
+   </ol>
+{% endif %}
